@@ -9,12 +9,17 @@
 };*/
 
 class Actuator {
+  private:
+    Servo &myservo;
+
   public:
+    Actuator(Servo &s) : myservo(s) {
+    }
+
     int pin;
     int position;
     int limiter_min;
     int limiter_max;
-    Servo myservo;
 
     void setup(int pin, int position, int limiter_min, int limiter_max){
       this->pin=pin;
@@ -78,10 +83,11 @@ void podnies(){
   ruch(1000,15);
   }*/
 
+Servo servo;
+Actuator base(servo), biceps(servo), forearm(servo), fingers(servo);
+
 void setup() {
-  Serial.begin(9600);
-  Servo 
-  Actuator base, biceps, forearm, fingers;
+  Serial.begin(9600); 
   base.setup(2,90,0,180);
   biceps.setup(3,90,90,180);
   forearm.setup(4,120,70,180);
