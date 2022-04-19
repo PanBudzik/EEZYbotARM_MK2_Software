@@ -24,6 +24,7 @@ class Actuator {
       this->turnFast(position,0);
     }
 
+    //Problem z kodem jest taki że myservo nie działa, ogarnij to!
     void turnFast(int new_position, int pause_ms) {
       this->myservo.attach(this->pin);
       this->myservo.write(new_position);
